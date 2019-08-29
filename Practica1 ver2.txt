@@ -1,0 +1,80 @@
+#### Tarea 1: Práctica de programación en R y Git
+#### Alumno:  Christian Alejandro Vázquez Vázquez
+#### Materia: Ciencia de datos
+#### Posgrado en ciencias biomédicas, UNAM
+
+
+###### 1. Defina un loop o bucle que realice la suma de los números enteros 
+###       impares que van del 1 al 99 (es decir, los enteros 1, 3, 5, 7, ..., 95, 97, 99)
+###       utilizando el operador for.
+
+### Respuesta:
+
+# Primero se genera una variable que sólo tenga números enteros impares del 1 al 99, como a continuación se muestra:
+a <- seq(0, 49)
+for (i in a) {Suma <- sum(2*a+1)} ## Se usa el comando for
+print(Suma) ## Se imprime el resultado
+
+
+#####  2. Haga lo mismo que en 1 utilizando el operador while.
+
+# Usar el comando while en el bucle para iterar hasta cero
+n <- 49
+s <- 1
+while(n > 0) {
+s <- s + (2*n+1)
+n <- n - 1
+}
+print(paste("La suma es =", s))
+
+# Otra forma de usar el comando while para este bucle es:
+n <- 0
+s <- 0
+while(n < 50) {
+s <- s + (2*n+1)
+n <- n + 1
+}
+print(paste("La suma es =", s))
+
+
+#####  3. (Opcional) Dé otra solución sin utilizar bucles.
+x <- 0:49                                    # Se crea una secuencia de número del 0 al 49,
+y <- 2*x+1                                   # Se generan los numeros impares del 1 al 99 y se introducen en un vector,
+Resultado <- sum(y)                          # Se suman lo valores dentro de ese vector,
+print(paste('El resultado es=', Resultado))  # Se imprime el resultado.
+
+#####  4. (Opcional) Con alguna de las soluciones anteriores 
+#         observe el resultado de las sumas parciales (es decir, 1+3, 1+3+5, 1+3+5+7, etc... ) 
+#         ¿Puede observar algún patrón? Con base en esto dé una solución general para la suma de 
+#         los números enteros impares que van del número 1 a cualquier entero n.
+
+#  Respuesta: Considerando que se refiere a todo número entero impar positivo se tiene que, su suma tiene el siguiente comportamiento:
+#             1                           = 1  = 1^2
+#             1 + 3                       = 4  = 2^2
+#             1 + 3 + 5                   = 9  = 3^2
+#             1 + 3 + 5 + 7               = 16 = 4^2
+#             1 + 3 + 5 + 7 + 9           = 25 = 5^2
+#             1 + 3 + 5 + 7 + 9 + 11      = 36 = 6^2
+#             1 + 3 + 5 + 7 + 9 + 11 + 13 = 49 = 7^2
+#             Etc.
+#             La formula es: la suma de todas las k=1 hasta n (2k + 1) = n^2 (dónde n puede ser cualquier número entero positivo) que da como resultado
+#             cualquier número entero positivo. Así, diseñando un programa en R para calcular cualquier suma de
+#             números enteros impares tenemos:
+
+
+
+v <- c(0:89)				# Donde se pone cualquier número natural  ¡Nota importante!
+n <-0                               	# Definiendo el valor incial de n para hacer las iteraciones
+si <-0                              	# Definiendo el valor inicial de la suma
+for  (i in v)                       	# Usando el comando for
+{(n<-n+1)     	       		       	# La primera parte de la formula, cambiando el signo para que de un número positivo
+if (n%%2==0)            		# Condicionando que se debe tomar cualquier número par, para posteriormente sumarle uno y hacer un impar
+(si <- si + i)}         		# Haciendo la suma iterativa de los números impares
+print(paste('El resultado es =', si)) 	# Imprimiendo el valor de la suma de impares
+
+# ¡Nota importante!: Si se cambia en el v <- c(0:___) la segunda posición en la secuencia del vector, se pude obtener la suma de todos los número impares
+#                    correspondientes a ese número.
+                             
+
+
+# La ruta del repositorio es: https://github.com/trascan/ChristianVazquez_Tarea1.git
